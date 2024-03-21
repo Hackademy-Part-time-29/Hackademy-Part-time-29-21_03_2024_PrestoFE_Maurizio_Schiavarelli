@@ -27,6 +27,8 @@ body {
     background-image: url(/public/img/post\ apocalittico4.png);
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: top;
+    
 }
 
 h1,
@@ -77,7 +79,7 @@ a {
     }
 
     .col33 {
-        width: 50%;
+        width: 48%;
     }
 
     .col60 {
@@ -96,7 +98,7 @@ a {
     }
 
     .col33 {
-        width: 33%;
+        width: 30%;
     }
 
     .col60 {
@@ -111,6 +113,7 @@ a {
     justify-content: space-around;
     align-items: center;
     height: 60px;
+    transition: 0.6s;
 }
 
 .active {
@@ -134,6 +137,33 @@ a {
         0 0 151px #0fa;
 }
 
+.navbarScroll{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;   
+    border: 2px solid #0fa; 
+    position: fixed;
+    top: 0;
+    width: 80%;
+    margin-top: 20px;
+    height: 50px;
+    z-index: 10;
+   
+   /* From https://css.glass */
+background: rgba(0, 0, 0, 0.49);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(7.1px);
+-webkit-backdrop-filter: blur(7.1px);
+border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.nav{
+    display: flex;
+    justify-content: center;
+    height: 60px;
+}
+
 /* header */
 
 h1 {
@@ -153,7 +183,7 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: calc(6vh + 2vw);
+    margin-top: calc(1vh + 8vw);
 }
 
 .containerHero h1 {
@@ -212,4 +242,89 @@ button:active {
 
 button a {
     font-size: calc(1rem + 0.8vw);
+}
+
+/* carosello swiper */
+
+.swiper {
+    margin-top: 60px;
+    width: calc(280px + 20vw);
+    height: 30vh;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.55);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10.6px);
+    -webkit-backdrop-filter: blur(10.6px);
+}
+
+  /* card swiper carosello */
+
+  .swiper-slide h3{
+    color: white;
+    font-size: calc(1rem + 1vw);
+}
+
+  .swiper-slide p{
+    color: white;
+    text-align: center;
+    font-size: calc(1rem + 0.3vw);
+    max-width: 360px;
+}
+
+  .swiper-slide{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    align-items: center;
+    border:  var(--glow-spread-color) 2px solid;
+    box-shadow: 0 0 1em .25em var(--glow-color),
+        0 0 4em 2em var(--glow-spread-color),
+        inset 0 0 .75em .25em var(--glow-color);
+    border-radius: 30px;
+}
+
+.swiper-button-prev{
+    color: var(--glow-spread-color);
+}
+
+.swiper-button-next{
+    color: var(--glow-spread-color);
+}
+
+/* pagina articoli */
+
+.articoliHero{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 10vh;
+    
+}
+
+.articoliHero > h1{
+    font-size: calc(1.6rem + 3vw);
+    margin-left: 20px;
+}
+
+.articoliHero > p{
+    font-size: calc(1.6rem + 1vw);
+    margin-left: 20px;
+    color: #fff;
+    text-shadow: 0 0 .5em var(--glow-color);
+}
+
+.cardArticoli{
+    border: #0fa 2px solid;
+    margin: auto;
+    color: #fff;
+    font-size: calc(1rem + 0.8vw);
+    height: calc(130px + 3vh);
+    margin-top: 8vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.cardArticoli h2,p{
+    text-align: center;
 }

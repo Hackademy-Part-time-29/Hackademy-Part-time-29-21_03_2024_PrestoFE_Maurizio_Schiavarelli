@@ -8,6 +8,9 @@
 
     <!-- link font -->
     <link href="https://api.fontshare.com/v2/css?f[]=poppins@2,900,901,701,801,201,401,301,500,400,601,100,1,300,501,101,800,700,200,600&f[]=supreme@501,2,800,400,401,200,100,300,101,301,500,201,801,1,701,700&display=swap" rel="stylesheet">
+
+    <!-- swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     
     <!-- my css -->
     <link rel="stylesheet" href="style.css">
@@ -16,11 +19,11 @@
 
 <body>
 
-    <nav>
-        <ul class="navbar">
+    <nav id="navContainer" class="">
+        <ul class="navbar" id="navbar">
             <li class="logo"><a href="/index.html">QUICKLY.IT</a></li>
             <li><a href="/index.html" class="active">Home</a></li>
-            <li><a href="">Articoli</a></li>
+            <li><a href="/articoli.html">Articoli</a></li>
             <li><a href="">About</a></li>
         </ul>
     </nav>
@@ -38,6 +41,49 @@
 
     </header>
 
+    <section>
+        <!-- Slider main container -->
+        <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper" id="swiperWrapper">
+                <!-- <div class="swiper-slide"> 
+                    <h3>Nome</h3>
+                    <p>
+                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                      Odit, obcaecati!
+                    </p>
+                    <span
+                      ><i
+                        class="fa-solid fa-star fa-lg"
+                        style="color: #ffd43b"
+                      ></i
+                      ><i
+                        class="fa-solid fa-star fa-lg"
+                        style="color: #ffd43b"
+                      ></i
+                      ><i
+                        class="fa-solid fa-star fa-lg"
+                        style="color: #ffd43b"
+                      ></i
+                      ><i
+                        class="fa-regular fa-star fa-lg"
+                        style="color: #ffd43b"
+                      ></i
+                      ><i
+                        class="fa-regular fa-star fa-lg"
+                        style="color: #ffd43b"
+                      ></i>
+                    </span>
+                </div> -->
+            </div>
+            <!--navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </section>
+
+    
+
     
   
     
@@ -51,11 +97,13 @@
 
 
 
+    <!-- font awesome script -->
+    <script src="https://kit.fontawesome.com/9959a81aec.js" crossorigin="anonymous"></script>
 
-
-
-
-
+    <!-- swiper js -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <!-- my js -->
     <script src="main.js"></script>
 </body>
 </html>
