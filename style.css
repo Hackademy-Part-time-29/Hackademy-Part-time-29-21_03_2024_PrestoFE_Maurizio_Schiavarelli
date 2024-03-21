@@ -1,0 +1,215 @@
+/* generico */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 16px;
+    --glow-color: rgb(217, 176, 255);
+    --glow-spread-color: rgba(191, 123, 255, 0.781);
+    --enhanced-glow-color: rgb(231, 206, 255);
+    --btn-color: rgb(100, 61, 136);
+}
+
+a {
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    background-image: url(/public/img/post\ apocalittico4.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: 'Poppins', sans-serif;
+}
+
+p,
+li,
+a {
+    font-family: 'Supreme', sans-serif;
+}
+
+/* grid system */
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col50 {
+    width: 100%;
+}
+
+.col40 {
+    width: 100%;
+}
+
+.col33 {
+    width: 98%;
+}
+
+.col60 {
+    width: 100%;
+}
+
+@media screen and (min-width: 720px) {
+
+    .col50 {
+        width: 50%;
+    }
+
+    .col40 {
+        width: 50%;
+    }
+
+    .col33 {
+        width: 50%;
+    }
+
+    .col60 {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 960px) {
+
+    .col50 {
+        width: 50%;
+    }
+
+    .col40 {
+        width: 40%;
+    }
+
+    .col33 {
+        width: 33%;
+    }
+
+    .col60 {
+        width: 60%;
+    }
+}
+
+/* navbar */
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+}
+
+.active {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--glow-color);
+    text-shadow: 0 0 .5em var(--glow-color)
+}
+
+.logo {
+    font-size: x-large;
+    color: #fff;
+    text-shadow:
+        0 0 7px #fff,
+        0 0 10px #fff,
+        0 0 21px #fff,
+        0 0 42px #0fa,
+        0 0 82px #0fa,
+        0 0 92px #0fa,
+        0 0 102px #0fa,
+        0 0 151px #0fa;
+}
+
+/* header */
+
+h1 {
+    color: #fff;
+    text-shadow:
+        0 0 0px #fff,
+        0 0 5px #fff,
+        0 0 15px #fff,
+        0 0 18px #0fa,
+        0 0 28px #0fa,
+        0 0 30px #0fa,
+        0 0 30px #0fa,
+        0 0 32px #0fa;
+}
+
+.containerHero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: calc(6vh + 2vw);
+}
+
+.containerHero h1 {
+    font-size: calc(1.6rem + 3vw);
+    margin-left: 20px;
+}
+
+.containerHero button {
+    width: 12vw;
+    height: 3vw;
+    min-width: 120px;
+    min-height: 50px;
+    border-radius: 32px;
+    margin: 30px;
+    
+    /* neon effect */
+    border: .25em solid var(--glow-color);
+    color: var(--glow-color);
+    font-weight: bold;
+    background-color: var(--btn-color);
+    border-radius: 1em;
+    box-shadow: 0 0 1em .25em var(--glow-color),
+        0 0 4em 1em var(--glow-spread-color),
+        inset 0 0 .75em .25em var(--glow-color);
+    text-shadow: 0 0 .5em var(--glow-color);
+    transition: all 0.3s;
+}
+
+button::after {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    top: 120%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--glow-spread-color);
+    filter: blur(2em);
+    opacity: .7;
+    transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
+}
+
+button:hover {
+    color: var(--btn-color);
+    background-color: var(--glow-color);
+    box-shadow: 0 0 1em .25em var(--glow-color),
+        0 0 4em 2em var(--glow-spread-color),
+        inset 0 0 .75em .25em var(--glow-color);
+}
+
+button:active {
+    box-shadow: 0 0 0.6em .25em var(--glow-color),
+        0 0 2.5em 2em var(--glow-spread-color),
+        inset 0 0 .5em .25em var(--glow-color);
+}
+
+button a {
+    font-size: calc(1rem + 0.8vw);
+}
