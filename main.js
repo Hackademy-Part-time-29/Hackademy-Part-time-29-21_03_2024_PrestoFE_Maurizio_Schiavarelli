@@ -2,6 +2,9 @@
 let navbar = document.querySelector('#navbar');
 let navContainer = document.querySelector('#navContainer');
 let swiperWrapper = document.querySelector('#swiperWrapper');
+let number1 = document.querySelector('#number1');
+let number2 = document.querySelector('#number2');
+let number3 = document.querySelector('#number3');
 
 window.addEventListener('scroll',()=>{
     if(window.scrollY > 0){
@@ -80,3 +83,34 @@ const swiper = new Swiper('.swiper', {
       el: '.swiper-scrollbar',
     },
   });
+
+  function createInterval (element, finalNumber, time){
+    let counter = 0;
+  
+    let interval = setInterval(()=>{
+      
+      if(counter < finalNumber){
+        counter++;
+        element.innerHTML = counter;
+        }else{
+          clearInterval(interval)
+        }
+    }, time);
+  };
+
+  //creo un oggetto di classe intersectionObserver e lo assegno alla variabile observer in modo da poterlo richiamare
+let observer = new IntersectionObserver((entries)=>{
+  entries.forEach((entry)=>{
+    if(entry.isIntersecting){
+      //blocco di istruzioni che partira una volta visualizzato uno dei miei elementi 
+      createInterval(number1, 1000, 100);
+      createInterval(number2, 500, 100);
+      createInterval(number3, 1020, 100);
+    }
+  })
+});
+
+//aggiungo un elemento alle entries del mio intersectionObserver
+observer.observe(number1);
+
+  

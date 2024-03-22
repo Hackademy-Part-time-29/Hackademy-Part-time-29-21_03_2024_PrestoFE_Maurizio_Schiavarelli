@@ -24,10 +24,10 @@ li {
 }
 
 body {
-    /* background-image: url(/public/img/post\ apocalittico4.png);
+    background-image: url(/public/img/post\ apocalittico4.png);
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: top; */
+    background-position: top;
     background-color: rgb(44, 43, 43);
     
 }
@@ -185,6 +185,7 @@ h1 {
     align-items: center;
     justify-content: center;
     margin-top: calc(1vh + 8vw);
+    margin-bottom: 15vh;
 }
 
 .containerHero h1 {
@@ -248,7 +249,7 @@ button a {
 /* carosello swiper */
 
 .swiper {
-    margin-top: 60px;
+    margin-top: 25vh;
     width: calc(280px + 20vw);
     height: 30vh;
     border-radius: 30px;
@@ -337,4 +338,20 @@ button a {
     top: 90px;
     
     
+}
+
+.numeri{
+    text-align: center;
+    margin-top: 15vh;
+    font-size: xx-large;
+    color: #fff;
+}
+
+.number{
+    color: #fff;
+    font-size: x-large;
+}
+
+.p{
+    color: #fff;
 }

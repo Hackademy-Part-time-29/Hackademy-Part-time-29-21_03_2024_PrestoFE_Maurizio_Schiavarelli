@@ -6,15 +6,15 @@ let priceInputValue = document.querySelector('#priceInputValue');
 let inputWord= document.querySelector('#inputWord');
 
 
-// window.addEventListener('scroll',()=>{
-//     if(window.scrollY > 0){
-//         navbar.classList.add('navbarScroll');
-//         navContainer.classList.add('nav');
-//     }else{
-//         navbar.classList.remove('navbarScroll');
-//         navContainer.classList.remove('nav');
-//     };
-// });
+window.addEventListener('scroll',()=>{
+    if(window.scrollY > 0){
+        navbar.classList.add('navbarScroll');
+        navContainer.classList.add('nav');
+    }else{
+        navbar.classList.remove('navbarScroll');
+        navContainer.classList.remove('nav');
+    };
+});
 
 fetch('./annunci.json').then((response) => response.json()).then((data)=>{
 
