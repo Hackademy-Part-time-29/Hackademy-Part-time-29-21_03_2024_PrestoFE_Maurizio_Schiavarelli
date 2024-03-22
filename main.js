@@ -98,11 +98,10 @@ const swiper = new Swiper('.swiper', {
     }, time);
   };
 
-  //creo un oggetto di classe intersectionObserver e lo assegno alla variabile observer in modo da poterlo richiamare
 let observer = new IntersectionObserver((entries)=>{
   entries.forEach((entry)=>{
     if(entry.isIntersecting){
-      //blocco di istruzioni che partira una volta visualizzato uno dei miei elementi 
+      
       createInterval(number1, 1000, 100);
       createInterval(number2, 500, 100);
       createInterval(number3, 1020, 100);
@@ -110,7 +109,7 @@ let observer = new IntersectionObserver((entries)=>{
   })
 });
 
-//aggiungo un elemento alle entries del mio intersectionObserver
 observer.observe(number1);
 
-  
+
+
