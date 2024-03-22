@@ -24,10 +24,11 @@ li {
 }
 
 body {
-    background-image: url(/public/img/post\ apocalittico4.png);
+    /* background-image: url(/public/img/post\ apocalittico4.png);
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: top;
+    background-position: top; */
+    background-color: rgb(44, 43, 43);
     
 }
 
@@ -47,7 +48,7 @@ a {
 
 /* grid system */
 
-.row {
+.rowy {
     display: flex;
     flex-wrap: wrap;
 }
@@ -212,7 +213,7 @@ h1 {
     transition: all 0.3s;
 }
 
-button::after {
+.containerHero button::after {
     pointer-events: none;
     content: "";
     position: absolute;
@@ -226,7 +227,7 @@ button::after {
     transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
 }
 
-button:hover {
+.containerHero button:hover {
     color: var(--btn-color);
     background-color: var(--glow-color);
     box-shadow: 0 0 1em .25em var(--glow-color),
@@ -327,4 +328,13 @@ button a {
 
 .cardArticoli h2,p{
     text-align: center;
+}
+
+.accordion{
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 90px;
+    
+    
 }
