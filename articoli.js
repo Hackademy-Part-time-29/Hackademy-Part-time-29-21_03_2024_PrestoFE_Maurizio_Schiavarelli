@@ -1,8 +1,10 @@
 let navbar = document.querySelector('#navbar');
 let wrapperArticoli = document.querySelector("#wrapperArticoli");
 let accordionBody = document.querySelector('#accordionBody');
-let priceInput = document.querySelector('#priceInput')
-let priceInputValue = document.querySelector('#priceInputValue')
+let priceInput = document.querySelector('#priceInput');
+let priceInputValue = document.querySelector('#priceInputValue');
+let inputWord= document.querySelector('#inputWord');
+
 
 // window.addEventListener('scroll',()=>{
 //     if(window.scrollY > 0){
@@ -65,6 +67,10 @@ fetch('./annunci.json').then((response) => response.json()).then((data)=>{
         });
     
     };
+    function filteByWord (parola){
+        let filtered = data.filter((annuncio)=>annuncio.name.toLowerCase().includes(parola.toLowerCase()));
+        generaCard(filtered)
+    }
 
     function filtraPerCategoria(category){
         if(category != 'all'){
@@ -97,6 +103,7 @@ function filterByPrice (){
 generaCard(data);   
 generaRadio();
 filtraPerPrezzo()
+
 let radioButton = document.querySelectorAll('.form-check-input');
 radioButton.forEach((button)=>{
     button.addEventListener('click',()=>{
@@ -107,6 +114,10 @@ radioButton.forEach((button)=>{
 priceInput.addEventListener('input',()=>{
     filterByPrice();
     priceInputValue.innerHTML = priceInput.value
+})
+
+inputWord.addEventListener('input',()=>{
+    filteByWord(inputWord.value);
 })
 
 });
