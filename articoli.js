@@ -67,17 +67,16 @@ fetch('./annunci.json').then((response) => response.json()).then((data)=>{
         });
     
     };
-    function filteByWord (parola){
-        let filtered = data.filter((annuncio)=>annuncio.name.toLowerCase().includes(parola.toLowerCase()));
-        generaCard(filtered)
-    }
+    
 
-    function filtraPerCategoria(category){
+    function filtraPerCategoria (array){
+        let selectedButton = Array.from(radioButton).find((button)=>button.checked);
+        category = selectedButton.id;
         if(category != 'all'){
             let filtered = data.filter((articolo)=>articolo.category == category);
-            generaCard(filtered);  
+            return filtered;  
         }else{
-            generaCard(data)
+            return array
         }
         
         
@@ -94,11 +93,28 @@ fetch('./annunci.json').then((response) => response.json()).then((data)=>{
         priceInputValue.innerHTML = maxPrice
     };
 
+    function filterByPrice (array){
+        let filtered = array.filter((articolo) => +articolo.price <= +priceInput.value);
+        return filtered;
+    };
+    
 
-function filterByPrice (){
-    let filtered = data.filter((articolo) => +articolo.price <= +priceInput.value);
-    generaCard(filtered)
-};
+    function filterByWord (array){
+        let filtered = array.filter((annuncio)=>annuncio.name.toLowerCase().includes(inputWord.value.toLowerCase()));
+        return filtered
+    }
+
+    
+
+
+
+function globalFilter(){
+    let filtraPerCategoria1 = filtraPerCategoria(data);
+    let filteredByCategoryAndPrice = filterByPrice(filtraPerCategoria1);
+    let filteredByCategoryAndPriceAndWord = filterByWord(filteredByCategoryAndPrice);
+    generaCard(filteredByCategoryAndPriceAndWord);
+}
+
 
 generaCard(data);   
 generaRadio();
@@ -107,18 +123,18 @@ filtraPerPrezzo()
 let radioButton = document.querySelectorAll('.form-check-input');
 radioButton.forEach((button)=>{
     button.addEventListener('click',()=>{
-        filtraPerCategoria(button.id);
+        globalFilter()
     });
 });
 
 priceInput.addEventListener('input',()=>{
-    filterByPrice();
+    globalFilter();
     priceInputValue.innerHTML = priceInput.value
-})
+});
 
 inputWord.addEventListener('input',()=>{
-    filteByWord(inputWord.value);
-})
+    globalFilter();
+});
 
 });
 
