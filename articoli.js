@@ -1,6 +1,8 @@
 let navbar = document.querySelector('#navbar');
 let wrapperArticoli = document.querySelector("#wrapperArticoli");
 let accordionBody = document.querySelector('#accordionBody');
+let priceInput = document.querySelector('#priceInput')
+let priceInputValue = document.querySelector('#priceInputValue')
 
 // window.addEventListener('scroll',()=>{
 //     if(window.scrollY > 0){
@@ -65,19 +67,48 @@ fetch('./annunci.json').then((response) => response.json()).then((data)=>{
     };
 
     function filtraPerCategoria(category){
-        let filtered = data.filter((articolo)=>articolo.category == category);
-        generaCard(filtered);
+        if(category != 'all'){
+            let filtered = data.filter((articolo)=>articolo.category == category);
+            generaCard(filtered);  
+        }else{
+            generaCard(data)
+        }
+        
+        
     }
+
+    function filtraPerPrezzo(){
+        let price = data.map((annuncio)=> +annuncio.price);
+        price.sort((a,b)=> a-b);
+        let maxPrice = price.pop();
+        let minPrice = price.shift();
+        priceInput.max = maxPrice;
+        priceInput.min = minPrice;
+        priceInput.value = maxPrice;
+        priceInputValue.innerHTML = maxPrice
+    };
+
+
+function filterByPrice (){
+    let filtered = data.filter((articolo) => +articolo.price <= +priceInput.value);
+    generaCard(filtered)
+};
 
 generaCard(data);   
 generaRadio();
-
+filtraPerPrezzo()
 let radioButton = document.querySelectorAll('.form-check-input');
 radioButton.forEach((button)=>{
     button.addEventListener('click',()=>{
         filtraPerCategoria(button.id);
     });
 });
+
+priceInput.addEventListener('input',()=>{
+    filterByPrice();
+    priceInputValue.innerHTML = priceInput.value
+})
+
 });
 
 
